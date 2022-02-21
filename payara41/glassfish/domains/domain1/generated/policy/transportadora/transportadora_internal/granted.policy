@@ -1,0 +1,79 @@
+/* AUTOMATICALLY GENERATED ON Mon Feb 21 02:31:53 COT 2022*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "DetalleEnvioFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EnvioFacade", "remove,Local,modelo.Envio";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "lstCentroAcopioCLiente,Local,int";
+  permission javax.security.jacc.EJBMethodPermission "ClienteFacade", "create,Local,modelo.Cliente";
+  permission javax.security.jacc.EJBMethodPermission "DetalleEnvioFacade", "edit,Local,modelo.DetalleEnvio";
+  permission javax.security.jacc.EJBMethodPermission "ClienteFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "TipoTransporteFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TipocentroAcopioFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TipoTransporteFacade", "remove,Local,modelo.TipoTransporte";
+  permission javax.security.jacc.EJBMethodPermission "EnvioFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "lstCentroAcopioNombre,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "lstTransporteTipoTransporte,Local,int";
+  permission javax.security.jacc.EJBMethodPermission "TipocentroAcopioFacade", "remove,Local,modelo.TipocentroAcopio";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "remove,Local,modelo.CentroAcopio";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "create,Local,modelo.Transporte";
+  permission javax.security.jacc.EJBMethodPermission "TipocentroAcopioFacade", "edit,Local,modelo.TipocentroAcopio";
+  permission javax.security.jacc.EJBMethodPermission "EnvioFacade", "edit,Local,modelo.Envio";
+  permission javax.security.jacc.EJBMethodPermission "TipocentroAcopioFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "DetalleEnvioFacade", "create,Local,modelo.DetalleEnvio";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "edit,Local,modelo.Transporte";
+  permission javax.security.jacc.EJBMethodPermission "TipoTransporteFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "ClienteFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "lstTransporteIdentificacion,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TipoTransporteFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "TipocentroAcopioFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "ClienteFacade", "edit,Local,modelo.Cliente";
+  permission javax.security.jacc.EJBMethodPermission "TipoTransporteFacade", "create,Local,modelo.TipoTransporte";
+  permission javax.security.jacc.EJBMethodPermission "DetalleEnvioFacade", "remove,Local,modelo.DetalleEnvio";
+  permission javax.security.jacc.EJBMethodPermission "EnvioFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "crearCentroAcopio,Local,java.lang.String,java.lang.String,java.lang.String,int,int";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "DetalleEnvioFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "ClienteFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "EnvioFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "ProductoFacade", "edit,Local,modelo.Producto";
+  permission javax.security.jacc.EJBMethodPermission "TipoTransporteFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "edit,Local,modelo.CentroAcopio";
+  permission javax.security.jacc.EJBMethodPermission "TipocentroAcopioFacade", "create,Local,modelo.TipocentroAcopio";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "create,Local,modelo.CentroAcopio";
+  permission javax.security.jacc.EJBMethodPermission "ClienteFacade", "remove,Local,modelo.Cliente";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "remove,Local,modelo.Transporte";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "CentroAcopioFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "DetalleEnvioFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "ProductoFacade", "create,Local,modelo.Producto";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "ClienteFacade", "lstClienteNombre,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "ProductoFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "ProductoFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "ClienteFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "ProductoFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "TipocentroAcopioFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "DetalleEnvioFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "ProductoFacade", "remove,Local,modelo.Producto";
+  permission javax.security.jacc.EJBMethodPermission "TransporteFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "TipoTransporteFacade", "edit,Local,modelo.TipoTransporte";
+  permission javax.security.jacc.EJBMethodPermission "EnvioFacade", "create,Local,modelo.Envio";
+  permission javax.security.jacc.EJBMethodPermission "EnvioFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "ProductoFacade", "count,Local,";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "TipoTransporteFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ClienteFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "EnvioFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ProductoFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "TipocentroAcopioFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "TransporteFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "DetalleEnvioFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "CentroAcopioFacade", "**";
+};
+
