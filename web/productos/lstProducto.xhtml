@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="../resources/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="titulo">Listado clientes</ui:define>
+    <ui:define name="contenido">
+        <div class="contenedorPrincipal">
+            <div style="background: rgba(185,185,185,0.3); height: 100%; width: 100%;">
+                <div class="contenedorCentral">
+                    <div class="contenedorFormularioBuscaCaja">
+                        <h:form prependId="false" id="formDependencia">
+                            <div class="col-md-12">
+                                <div class="col-md-12" align="center">
+                                    <h3 style="color: #FFF;">Listado clientes</h3>
+                                    <legend></legend>
+                                </div>
+                                <div class="col-md-12 text-center" style="font-size: 18px;">
+                                    <h:message for="formDependencia"
+                                               class="col-md-12"
+                                               showSummary="true"
+                                               errorStyle="color: red; background: rgba(255,255,255,0.8);"/>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-10">
+                                        <h:outputText value="Buscar cliente"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"/>
+                                    </div>
+                                    <div class="col-md-1" style="margin-top: 4%">
+                                        <h:commandLink class="btn btn-primary icon icon-plus"
+                                                       title="Crear cliente"
+                                                       action="#{clienteManagedBean.iniciaCrearCliente}">
+                                        </h:commandLink>
+                                    </div>
+                                    <div class="col-md-1" style="margin-top: 4%">
+                                        <h:commandLink class="btn btn-success icon icon-search"
+                                                       title="Buscar cliente">
+                                            <f:ajax event="click"
+                                                    render="lstDependencia formDependencia"
+                                                    execute="@form"
+                                                    listener="#{controllerDependencia.buscarDependencia}"/>
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>  
+                        </h:form>
+                    </div>
+                    <div class="contenedorTabla">
+                        <h:form prependId="false" id="lstDependencia">
+                            <table class="table table-hover scrollTabla contenedorTablaBodega">
+                                <thead class="estilosEncabezado">
+                                    <tr>
+                                        <th style="text-align: center;">Codigo cliente</th>
+                                        <th style="text-align: center;">Nombre cliente</th>
+                                        <th style="text-align: center;">Dirección</th>
+                                        <th style="text-align: center;">Nombre contacto</th>
+                                        <th style="text-align: center;">Telefono contacto</th>
+                                        <th style="text-align: center;">Agregar articulo</th>
+                                        <th style="text-align: center;">Editar</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="estilosCuerpo">
+                                    <c:forEach items="#{clienteManagedBean.lstCliente}" var="lstCliente">
+                                        <tr>
+                                            <td aling="center"><h:outputText value="#{lstCliente.idCliente}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstCliente.nombreCliente}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstCliente.direccion}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstCliente.nombreContacto}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstCliente.telefonoContacto}"/></td>
+                                            <td align="center">
+                                                <h:commandLink class="btn btn-danger icon-gift"
+                                                               title="Agrgar articulos"
+                                                               action="#{clienteManagedBean.agregarArticulos(lstCliente)}">
+                                                </h:commandLink>
+                                            </td>
+                                            <td align="center">
+                                                <h:commandLink class="btn btn-warning icon-pencil"
+                                                               title="Editar cliente"
+                                                               action="#{clienteManagedBean.alistarEditarCLiente(lstCliente)}">
+                                                </h:commandLink>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript library="js" name="abrirMenu.js"/>
+    </ui:define>
+</ui:composition>
+

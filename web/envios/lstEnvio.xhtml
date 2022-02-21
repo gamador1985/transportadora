@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="../resources/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="titulo">Listado envios</ui:define>
+    <ui:define name="contenido">
+        <div class="contenedorPrincipal">
+            <div style="background: rgba(185,185,185,0.3); height: 100%; width: 100%;">
+                <div class="contenedorCentral">
+                    <div class="contenedorFormularioBuscaCaja">
+                        <h:form prependId="false" id="formLstenvio">
+                            <div class="col-md-12">
+                                <div class="col-md-12" align="center">
+                                    <h3 style="color: #FFF;">Listado de envíos</h3>
+                                    <legend></legend>
+                                </div>
+                                <div class="col-md-12 text-center" style="font-size: 18px;">
+                                    <h:message for="formLstenvio"
+                                               class="col-md-12"
+                                               showSummary="true"
+                                               errorStyle="color: red; background: rgba(255,255,255,0.8);"/>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-10">
+                                        <h:outputText value="Número de guia"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"/>
+                                    </div>
+                                    <div class="col-md-1" style="margin-top: 3.5%">
+                                        <h:commandLink class="btn btn-primary icon icon-plus"
+                                                       title="Crear centro de acopio"
+                                                       action="#{envioManagedBean.iniciaCrearEnvio}">
+                                        </h:commandLink>
+                                    </div>
+                                    <div class="col-md-1" style="margin-top: 3.5%">
+                                        <h:commandLink class="btn btn-success icon icon-search"
+                                                       title="Buscar cliente">
+                                            <f:ajax event="click"
+                                                    render="lstCentroAcopio formCentroAcopio"
+                                                    execute="@form"
+                                                    listener="#{centroAcopioManagedBean.buscarCentroAcopio}"/>
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>  
+                        </h:form>
+                    </div>
+                    <div class="contenedorTabla">
+                        <h:form prependId="false" id="lstEnvio">
+                            <table class="table table-hover scrollTabla contenedorTablaBodega">
+                                <thead class="estilosEncabezado">
+                                    <tr>
+                                        <th style="text-align: center;">Cliente</th>
+                                        <th style="text-align: center;">Guia</th>
+                                        <th style="text-align: center;">Fecha ingreso</th>
+                                        <th style="text-align: center;">Fecha entrega</th>
+                                        <th style="text-align: center;">Luegar entrega</th>
+                                        <th style="text-align: center;">Cantidad</th>
+                                        <th style="text-align: center;">Valor envio</th>
+                                        <th style="text-align: center;">% Descuento</th>
+                                        <th style="text-align: center;">Valor descuento</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="estilosCuerpo">
+                                    <c:forEach items="#{envioManagedBean.lstEvnio}" var="lstEnvio">
+                                        <tr>
+                                            <td aling="center"><h:outputText value="#{lstEnvio.fkIdCentroAcopio.fkidCliente.nombreCliente}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstEnvio.numeroGuia}"/></td>
+                                            <td aling="center">
+                                                <h:outputText value="#{lstEnvio.fechaIngreso}">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                                </h:outputText>
+                                            </td>
+                                            <td aling="center">
+                                                <h:outputText value="#{lstEnvio.fechaEntrega}">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                                </h:outputText>
+                                            </td>
+                                            <td aling="center"><h:outputText value="#{lstEnvio.fkIdCentroAcopio.nombreCentroAcopio}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstEnvio.cantidadEnvio}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstEnvio.valorEnvio}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstEnvio.porcentajeDescuento}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstEnvio.valorDescuento}"/></td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript library="js" name="abrirMenu.js"/>
+    </ui:define>
+</ui:composition>
+
