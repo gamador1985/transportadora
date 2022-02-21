@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.contenedorFormulario{
+    width: 100%;
+    /*margin-left: 15%;*/
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(0,0,0,0.2);
+    float:  left;
+    border-radius: 3px;
+}
+
+@media(min-width: 1024px){
+    .contenedorFormulario{
+        width: 60%;
+        margin-left: 15%;
+        border: 1px solid rgba(255,255,255,0.3);
+        background: rgba(0,0,0,0.2);
+        float:  left;
+        border-radius: 3px;
+    }
+    .contenedorFormularioBuscaCaja{
+        width: 61%;
+        margin-left: 15.8%;
+        border: 1px solid rgba(255,255,255,0.3);
+        background: rgba(0,0,0,0.2);
+        float:  left;
+        border-radius: 3px;
+    }
+
+}

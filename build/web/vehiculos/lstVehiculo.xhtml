@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="../resources/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="titulo">Listado vehiculos</ui:define>
+    <ui:define name="contenido">
+        <div class="contenedorPrincipal">
+            <div style="background: rgba(185,185,185,0.3); height: 100%; width: 100%;">
+                <div class="contenedorCentral">
+                    <div class="contenedorFormularioBuscaCaja">
+                        <h:form prependId="false" id="formLstCliente">
+                            <div class="col-md-12">
+                                <div class="col-md-12" align="center">
+                                    <h3 style="color: #FFF;">Listado medios de transporte</h3>
+                                    <legend></legend>
+                                </div>
+                                <div class="col-md-12 text-center" style="font-size: 18px;">
+                                    <h:message for="formLstCliente"
+                                               class="col-md-12"
+                                               showSummary="true"
+                                               errorStyle="color: red; background: rgba(255,255,255,0.8);"/>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-10">
+                                        <h:outputText value="Buscar por palca o No. Flota"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{vehiculoManagedBean.identificacionTransporte}"/>
+                                    </div>
+                                    <div class="col-md-1" style="margin-top: 4%">
+                                        <h:commandLink class="btn btn-primary icon icon-plus"
+                                                       title="Crear cliente"
+                                                       action="#{vehiculoManagedBean.inciarCrearVehiculo}">
+                                        </h:commandLink>
+                                    </div>
+                                    <div class="col-md-1" style="margin-top: 4%">
+                                        <h:commandLink class="btn btn-success icon icon-search"
+                                                       title="Buscar cliente">
+                                            <f:ajax event="click"
+                                                    render="formLstCliente lstTransporte"
+                                                    execute="@form"
+                                                    listener="#{vehiculoManagedBean.buscarTransporte}"/>
+                                        </h:commandLink>
+                                    </div>
+                                </div>
+                            </div>  
+                        </h:form>
+                    </div>
+                    <div class="contenedorTabla">
+                        <h:form prependId="false" id="lstTransporte">
+                            <table class="table table-hover scrollTabla contenedorTablaBodega">
+                                <thead class="estilosEncabezado">
+                                    <tr>
+                                        <th style="text-align: center;">Id. vehiculo</th>
+                                        <th style="text-align: center;">Placa o Flota</th>
+                                        <th style="text-align: center;">Tipo transporte</th>
+                                        <th style="text-align: center;">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="estilosCuerpo">
+                                    <c:forEach items="#{vehiculoManagedBean.lstTransporte}" var="lstTransporte">
+                                        <tr>
+                                            <td aling="center"><h:outputText value="#{lstTransporte.idTransporte}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstTransporte.identificacionTransporte}"/></td>
+                                            <td aling="center"><h:outputText value="#{lstTransporte.fkidTipoTransporte.nombreTipoTransporte}"/></td>
+                                            <c:if test="#{lstTransporte.estado == 1}">
+                                                <td aling="center"><h:outputText value="Activo"/></td>
+                                            </c:if>
+                                            <c:if test="#{lstTransporte.estado == 2}">
+                                                <td aling="center"><h:outputText value="Inactivo"/></td>
+                                            </c:if>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript library="js" name="abrirMenu.js"/>
+    </ui:define>
+</ui:composition>
+

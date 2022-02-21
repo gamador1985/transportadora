@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/resources/template/template.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="titulo">Listado usuarios</ui:define>
+
+    <ui:define name="contenido">
+        <div class="contenedorPrincipal">
+            <div style="background: rgba(185,185,185,0.3); height: 100%; width: 100%;">
+                <div class="contenedorCentral">
+                    <div class="contenedorTabla">
+                        <h:form prependId="false" id="tablaUsuario">
+                            <table class="table table-hover scrollTabla contenedorTablaUsuario">
+                                <div class="col-md-12" align="center">
+                                    <h3 style="color: #FFF;">Listado usuarios</h3>
+                                    <legend></legend>
+                                </div>
+                                <thead class="estilosEncabezado">
+                                    <tr>
+                                        <th style="text-align: center;">Id Usuario</th>
+                                        <th style="text-align: center;">Nombre</th>
+                                        <th style="text-align: center;">Apellidos</th>
+                                        <th style="text-align: center;">Area</th>
+                                        <th style="text-align: center;">Correo</th>
+                                        <th style="text-align: center;">Contraseña</th>
+                                        <th style="text-align: center;">Rol de usuario</th>
+                                        <th style="text-align: center;">Estado de usuario</th>
+                                        <th style="text-align: center;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="estilosCuerpo">
+                                    <c:forEach items="#{controllerUsuario.lstUsuario}" var="lstUsuario">
+                                        <tr>
+                                            <td><h:outputText value="#{lstUsuario.idUsuario}"/></td>
+                                            <td><h:outputText value="#{lstUsuario.nombre}"/></td>
+                                            <td><h:outputText value="#{lstUsuario.apellido}"/></td>
+                                            <td><h:outputText value="#{lstUsuario.fkArea.nombreArea}"/></td>
+                                            <td><h:outputText value="#{lstUsuario.correoElectronico}"/></td>
+                                            <td><h:outputText value="#{lstUsuario.contrasena}"/></td>
+                                            <td><h:outputText value="#{lstUsuario.fkRolSistema.nombreRol}"/></td>
+                                            <c:if test="#{lstUsuario.estado eq 1}">
+                                                <td>Activo</td>
+                                            </c:if>
+                                            <c:if test="#{lstUsuario.estado eq 2}">
+                                                <td>Inactivo</td>
+                                            </c:if>
+                                            <td>
+                                                <h:commandLink class="btn btn-warning icon-pencil"
+                                                               title="Editar usuario"
+                                                               action="#{controllerUsuario.alistaEdicionUsuario(lstUsuario)}"/>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript library="js" name="abrirMenu.js"/>
+    </ui:define>
+</ui:composition>
+

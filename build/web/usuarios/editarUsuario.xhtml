@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/resources/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:a="http://xmlns.jcp.org/jsf/passtrought">
+    <ui:define name="titulo">Crear usuario</ui:define>
+    <ui:define name="contenido">
+        <div class="contenedorPrincipal">
+            <div style="background: rgba(185,185,185,0.3); height: 100%;">
+                <div class="contenedorCentral">
+                    <div class="contenedorFormulario">
+                        <h:form prependId="false" id="formUsuario">
+                            <div class="col-md-12">
+                                <div class="col-md-12" align="center">
+                                    <h3 style="color: #FFF;">Edicion datos usuario</h3>
+                                    <legend></legend>
+                                </div>
+                                <div class="col-md-12" align="center" style="font-size: 18px; float: left;">
+                                    <h:messages  for="formUsuario"
+                                                 class="col-md-12"
+                                                 showSummary="true"
+                                                 warnStyle="color: #E8D503;"
+                                                 infoStyle="color: #01EB18"/>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-6">
+                                        <h:outputText value="Nombres"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{controllerUsuario.usuarioSeleccionado.nombre}"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:outputText value="Apellidos"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{controllerUsuario.usuarioSeleccionado.apellido}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-6">
+                                        <h:outputText value="Cédula"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     a:maxlength="10"
+                                                     a:type="number"
+                                                     disabled="true"
+                                                     value="#{controllerUsuario.usuarioSeleccionado.idUsuario}"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:outputText value="Area"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         value="#{controllerUsuario.usuarioSeleccionado.fkArea}"
+                                                         converter="converterAreaLaboral">
+                                            <f:selectItems value="#{controllerAreaLaboral.lstAreaLaboral}" 
+                                                           var="lstAreaLAboral"
+                                                           itemLabel="#{lstAreaLAboral.nombreArea}"/>                                                           
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-6">
+                                        <h:outputText value="Correo"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{controllerUsuario.usuarioSeleccionado.correoElectronico}"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:outputText value="Contraseña"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{controllerUsuario.usuarioSeleccionado.contrasena}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-6">
+                                        <h:outputText value="Tipo usuario"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         value="#{controllerUsuario.usuarioSeleccionado.fkRolSistema}"
+                                                         converter="converterRolSistema">
+                                            <f:selectItems value="#{controllerRolSistema.lstRolSistema}"
+                                                           var="lstRolSistem"
+                                                           itemLabel="#{lstRolSistem.nombreRol}">
+                                            </f:selectItems>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:outputText value="Estado usuario"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                         style="font-size: 15px"
+                                                         value="#{controllerUsuario.usuarioSeleccionado.estado}">
+                                            <f:selectItem itemValue="1" itemLabel="Activo"/>
+                                            <f:selectItem itemValue="2" itemLabel="Inactivo"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group" align="center">
+                                    <div class="col-md-6">
+                                        <h:commandButton class="btn btn-block btn-warning" value="Guardar cambios"
+                                                         style="font-size: 15px;"
+                                                         action="#{controllerUsuario.guardarCambios()}"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:commandButton class="btn btn-block btn-success" value="Cancelar"
+                                                         style="font-size: 15px;"
+                                                         action="#{controllerUsuario.cancelarCambioUsuario()}"/>
+                                    </div>
+                                </div>
+                            </div>  
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript library="js" name="abrirMenu.js"/>
+    </ui:define>
+</ui:composition>
+

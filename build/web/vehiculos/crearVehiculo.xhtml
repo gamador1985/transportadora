@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/resources/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:define name="titulo">Creación vehiculo</ui:define>
+    <ui:define name="contenido">
+        <div class="contenedorPrincipal">
+            <div style="background: rgba(185,185,185,0.3); height: 100%; width: 100%;">
+                <div class="contenedorCentral">
+                    <div class="contenedorFormulario">
+                        <h:form prependId="false" id="formCreaVehiculo">
+                            <div class="col-md-12">
+                                <div class="col-md-12" align="center">
+                                    <h3 style="color: #FFF;">Creación vehiculos</h3>
+                                    <legend></legend>
+                                </div>
+                                <div class="col-md-12 text-center" style="font-size: 18px;">
+                                    <h:message for="formCreaVehiculo"
+                                               class="col-md-12"
+                                               showSummary="true"
+                                               errorStyle="color: red; background: rgba(255,255,255,0.8);"/>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-6">
+                                        <h:outputText value="Tipo transporte"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:selectOneMenu class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{vehiculoManagedBean.transporteSeleccionado.fkidTipoTransporte}"
+                                                     converter="converterTipoTransporte">
+                                            <f:selectItems value="#{tipoTransporteManagedBean.lstTipoTransporte}"
+                                                           var="lstTipoTransporte"
+                                                           itemLabel="#{lstTipoTransporte.nombreTipoTransporte}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h:outputText value="Identificación"
+                                                      style="color: #FFF; 
+                                                      float:left;
+                                                      font-size: 17px;"/>
+                                        <h:inputText class="form-control"
+                                                     style="font-size: 20px"
+                                                     value="#{vehiculoManagedBean.identificacionTransporte}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group" align="center">
+                                    <div class="col-md-12">
+                                        <h:commandButton class="btn btn-success" value="Crear vehiculo"
+                                                         style="font-size: 15px;"
+                                                         action="#{vehiculoManagedBean.crearVehiculo}">
+                                        </h:commandButton>
+                                    </div>
+                                </div>
+                            </div>  
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript library="js" name="abrirMenu.js"/>
+    </ui:define>
+</ui:composition>
